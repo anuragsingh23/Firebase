@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Firebase</string>
+    <string name="home">home</string>
+    <string name="users">users</string>
+    <string name="chat_fragment">Chat Fragment</string>
+    <string name="user_fragment">users fragment</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Login</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="join_with_us">Sign In</string>
+    <string name="name">Name</string>
+    <string name="register_now">Signup now</string>
+    <string name="continueto_log_in">Continue to LogIn</string>
+    <string name="this_is_a_message">This is a Message</string>
+    <string name="message">Message</string>
+    <string name="User">"user "</string>
+    <string name="Log_in">Log In</string>
+    <string name="SignIn">SignIn</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+</resources>
