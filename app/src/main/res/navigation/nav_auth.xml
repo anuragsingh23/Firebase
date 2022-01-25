@@ -5,32 +5,33 @@
     android:id="@+id/nav_auth"
     app:startDestination="@id/signInFragment">
 
-    <fragment
-        android:id="@+id/loginFragment2"
-        android:name="com.example.firebase.ui.authentication.login.LoginFragment"
-        android:label="LoginFragment"
-        tools:layout="@layout/fragment_login">
-        <action
-            android:id="@+id/action_loginFragment2_to_signInFragment"
-            app:destination="@id/signInFragment" />
-        <action
-            android:id="@+id/action_loginFragment2_to_confirmFragment2"
-            app:destination="@id/confirmFragment2" />
-    </fragment>
+
     <fragment
         android:id="@+id/signInFragment"
         android:name="com.example.firebase.ui.authentication.signin.SignInFragment"
         android:label="SignInFragment"
         tools:layout="@layout/fragment_signin">
         <action
-            android:id="@+id/action_signInFragment_to_confirmFragment2"
-            app:destination="@id/confirmFragment2" />
+            android:id="@+id/action_signInFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
         <action
-            android:id="@+id/action_signInFragment_to_loginFragment2"
-            app:destination="@id/loginFragment2" />
+            android:id="@+id/action_signInFragment_to_confirmFragment"
+            app:destination="@id/confirmFragment" />
     </fragment>
     <fragment
-        android:id="@+id/confirmFragment2"
+        android:id="@+id/loginFragment"
+        android:name="com.example.firebase.ui.authentication.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_confirmFragment"
+            app:destination="@id/confirmFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmFragment"
         android:name="com.example.firebase.ui.authentication.login.ConfirmFragment"
         android:label="ConfirmFragment"
         tools:layout="@layout/fragment_confirmation"/>
