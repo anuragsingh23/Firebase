@@ -3,20 +3,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_auth"
-    app:startDestination="@id/signInFragment">
+    app:startDestination="@id/landingFragment">
 
 
     <fragment
+        android:id="@+id/landingFragment"
+        android:name="com.example.firebase.ui.LandingFragment"
+        android:label="LandingFragment" >
+        <action
+            android:id="@+id/action_landingFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_landingFragment_to_chatFragment2"
+            app:destination="@id/chatFragment2" />
+    </fragment>
+    <fragment
         android:id="@+id/signInFragment"
         android:name="com.example.firebase.ui.authentication.signin.SignInFragment"
-        android:label="SignInFragment"
-        tools:layout="@layout/fragment_signin">
-        <action
-            android:id="@+id/action_signInFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+        android:label="SignInFragment" >
         <action
             android:id="@+id/action_signInFragment_to_confirmFragment"
             app:destination="@id/confirmFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment2"
+        android:name="com.example.firebase.ui.chat.ChatFragment"
+        android:label="ChatFragment" />
+    <fragment
+        android:id="@+id/confirmFragment"
+        android:name="com.example.firebase.ui.authentication.login.ConfirmFragment"
+        android:label="ConfirmFragment" >
+        <action
+            android:id="@+id/action_confirmFragment_to_chatFragment2"
+            app:destination="@id/chatFragment2" />
+        <action
+            android:id="@+id/action_confirmFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -24,15 +49,10 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_loginFragment_to_signInFragment"
-            app:destination="@id/signInFragment" />
-        <action
             android:id="@+id/action_loginFragment_to_confirmFragment"
             app:destination="@id/confirmFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/confirmFragment"
-        android:name="com.example.firebase.ui.authentication.login.ConfirmFragment"
-        android:label="ConfirmFragment"
-        tools:layout="@layout/fragment_confirmation"/>
 </navigation>
