@@ -1,4 +1,4 @@
-package com.example.firebase.Utils
+package com.example.firebase.utils
 
 enum class Status {
 

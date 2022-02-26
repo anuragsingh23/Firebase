@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_auth"
-    app:startDestination="@id/signInFragment">
+    app:startDestination="@id/baseFragment2">
 
 
     <fragment
@@ -34,5 +34,33 @@
         android:id="@+id/confirmFragment"
         android:name="com.example.firebase.ui.authentication.login.ConfirmFragment"
         android:label="ConfirmFragment"
-        tools:layout="@layout/fragment_confirmation"/>
+        tools:layout="@layout/fragment_confirmation">
+        <action
+            android:id="@+id/action_confirmFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.firebase.ui.home.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/baseFragment2"
+        android:name="com.example.firebase.ui.BaseFragment"
+        android:label="BaseFragment" >
+        <action
+            android:id="@+id/action_baseFragment2_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_baseFragment2_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+
+
+
+
 </navigation>

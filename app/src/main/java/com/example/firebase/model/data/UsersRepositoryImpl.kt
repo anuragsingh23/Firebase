@@ -1,6 +1,5 @@
 package com.example.firebase.model.data
 
-import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.flow.Flow
 
 class UsersRepositoryImpl(
@@ -8,18 +7,19 @@ class UsersRepositoryImpl(
 ) : UsersRepository {
 
 
-    override suspend fun insertUser(users: Users) {
+    override suspend fun insertUser(users: User) {
         usersDao.insertUser(users)
     }
 
-    override suspend fun deleteUser(users: Users) {
+    override suspend fun deleteUser(users: User) {
         usersDao.deleteUser(users)
     }
 
-    override fun getUsers(): Flow<List<Users>> {
+    override fun getUsers(): Flow<List<User>> {
          return  usersDao.getUsers()
     }
 
-    lateinit var auth: FirebaseAuth
+
+
 
 }

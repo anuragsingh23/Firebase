@@ -1,6 +1,6 @@
 package com.example.firebase
 
-import com.example.firebase.Utils.Status
+import com.example.firebase.utils.Status
 
 data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
 

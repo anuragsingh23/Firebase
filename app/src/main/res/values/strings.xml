@@ -13,8 +13,10 @@
     <string name="continueto_log_in">Continue to LogIn</string>
     <string name="this_is_a_message">This is a Message</string>
     <string name="message">Message</string>
+    <string name="search">Search</string>
     <string name="User">"user "</string>
     <string name="Log_in">Log In</string>
+    <string name="Log_out">Log Out</string>
     <string name="SignIn">SignIn</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
@@ -29,4 +31,13 @@
     <string name="confirm_otp">validate</string>
     <string name="otp">* * * * *</string>
     <string name="resend_otp">resend otp</string>
+    <string name="err_msg_select_name">please enter name</string>
+    <string name="err_msg_select_phone_number">please enter phone number</string>
+    <string name="example">example</string>
+    <string name="countryCode">+91</string>
+    <string name="err_msg_select_country_code">please enter country code</string>
+    <string name="friends">friends</string>
+    <string name="line_1">Line 1</string>
+    <string name="line_2">Line 2</string>
+    <string name="chat">Chat</string>
 </resources>

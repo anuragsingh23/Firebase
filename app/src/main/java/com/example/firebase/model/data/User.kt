@@ -4,8 +4,11 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
-@Entity
-data class Users(
+
+@Entity(
+    tableName = "users"
+)
+data class User(
     val name:String,
     val phoneNumber : String,
     val isLoggedIn :Boolean,
