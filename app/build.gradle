@@ -63,6 +63,9 @@ dependencies {
     // When using the BoM, don't specify versions in Firebase dependencies
     implementation 'com.google.firebase:firebase-analytics'
 
+    //splash screen
+    implementation 'androidx.core:core-splashscreen:1.0.0-beta01'
+
   
 
     //Dagger - Hilt
