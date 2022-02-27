@@ -1,9 +1,11 @@
 package com.example.firebase.ui.authentication.signin
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -17,21 +19,55 @@ class SignInFragment : Fragment(R.layout.fragment_signin) {
     private var binding: FragmentSigninBinding? = null
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding= FragmentSigninBinding.inflate(inflater,container,false)
 
-         binding?.btnLogin?.setOnClickListener{
-             NaviigateTOLogin()
-         }
-        binding?.btnRegister?.setOnClickListener {
-            findNavController()
-                .navigate(R.id.action_signInFragment_to_confirmFragment)
+        binding!!.btnRegister.setOnClickListener {
+
+            val name = binding!!.etName.text.toString().trim { it <= ' ' }
+            val phoneNumber = binding!!.etMobile.text.toString().trim { it <= ' ' }
+            val countryCode = binding!!.etCountryCode.text.toString().trim { it <= ' ' }
+
+            when {
+                TextUtils.isEmpty(name) -> {
+                    Toast.makeText(
+                        this.activity,
+                        resources.getString(R.string.inset_name),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                TextUtils.isEmpty(phoneNumber) -> {
+                    Toast.makeText(
+                        this.activity,
+                        resources.getString(R.string.select_phone_number),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                TextUtils.isEmpty(countryCode) -> {
+                    Toast.makeText(
+                        this.activity,
+                        resources.getString(R.string.err_msg_select_country_code),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                else -> {
+                    findNavController()
+                        .navigate(SignInFragmentDirections.
+                        actionSignInFragmentToConfirmFragment(
+                            name,
+                          phoneNumber,
+                          countryCode
+                        ))
+                }
+            }
         }
-        return binding?.root
+
+        return binding!!.root
     }
 
 
@@ -44,7 +80,6 @@ class SignInFragment : Fragment(R.layout.fragment_signin) {
 
     override fun onDestroy() {
         super.onDestroy()
-
         binding = null
     }
 }

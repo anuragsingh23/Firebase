@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/landingFragment"
-        android:name="com.example.firebase.ui.LandingFragment"
+        android:name="com.example.firebase.ui.extrafragments.LandingFragment"
         android:label="LandingFragment" >
         <action
             android:id="@+id/action_landingFragment_to_signInFragment"
@@ -23,10 +23,25 @@
         android:label="SignInFragment" >
         <action
             android:id="@+id/action_signInFragment_to_confirmFragment"
-            app:destination="@id/confirmFragment" />
+            app:destination="@id/confirmFragment" >
+            <argument
+                android:name="name"
+                app:argType="string"
+                android:defaultValue='""'/>
+            <argument
+                android:name="countyCode"
+                app:argType="string"
+                android:defaultValue="+91"/>
+            <argument
+                android:name="phoneNumber"
+                app:argType="string"
+                android:defaultValue='""'/>
+        </action>
         <action
             android:id="@+id/action_signInFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+
+
     </fragment>
     <fragment
         android:id="@+id/chatFragment2"

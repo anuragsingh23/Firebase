@@ -30,4 +30,9 @@
     <string name="otp">* * * * *</string>
     <string name="resend_otp">resend otp</string>
     <string name="countrycode">+91</string>
+    <string name="Friends">Friends</string>
+    <string name="Chats">Chats</string>
+    <string name="inset_name">please enter name</string>
+    <string name="select_phone_number">enter phone number</string>
+    <string name="err_msg_select_country_code">please enter country code</string>
 </resources>
