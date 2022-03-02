@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -56,13 +57,13 @@ class SignInFragment : Fragment(R.layout.fragment_signin) {
                     ).show()
                 }
                 else -> {
+                    val bundle = bundleOf(
+                        "name" to name,
+                        "phoneNumber" to phoneNumber,
+                        "countryCode" to countryCode
+                    )
                     findNavController()
-                        .navigate(SignInFragmentDirections.
-                        actionSignInFragmentToConfirmFragment(
-                            name,
-                          phoneNumber,
-                          countryCode
-                        ))
+                        .navigate(R.id.action_signInFragment_to_confirmFragment , bundle)
                 }
             }
         }
@@ -71,7 +72,7 @@ class SignInFragment : Fragment(R.layout.fragment_signin) {
     }
 
 
-    private fun NaviigateTOLogin() {
+    private fun NavigateTOLogin() {
         findNavController()
             .navigate(R.id.action_signInFragment_to_loginFragment)
     }

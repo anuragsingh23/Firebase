@@ -11,4 +11,7 @@
     <color name="divider_color">#D3D6DC</color>
     <color name="yellow_chope">#F8D047</color>
     <color name="chope_blue">#B15B40</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
 </resources>

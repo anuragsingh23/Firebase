@@ -35,4 +35,8 @@
     <string name="inset_name">please enter name</string>
     <string name="select_phone_number">enter phone number</string>
     <string name="err_msg_select_country_code">please enter country code</string>
+    <string name="verification_code">Verification Code</string>
+    <string name="verification_code_subtext">"please enter the verification code sent to "</string>
+    <string name="validate">Validate</string>
+    <string name="password_no">* * * * * *</string>
 </resources>
