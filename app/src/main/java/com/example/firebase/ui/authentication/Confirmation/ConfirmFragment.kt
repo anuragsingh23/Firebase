@@ -6,14 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.navArgs
 import com.example.firebase.R
-import com.example.firebase.Utils.Constants
-import com.example.firebase.Utils.Constants.MESSAGE
 import com.example.firebase.databinding.FragmentConfirmationBinding
-
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.*
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import java.util.concurrent.TimeUnit
 
 class ConfirmFragment : Fragment(R.layout.fragment_confirmation){
@@ -67,6 +65,8 @@ class ConfirmFragment : Fragment(R.layout.fragment_confirmation){
             resendVerificationCode(number, resendToken )
 
         }
+
+        auth = Firebase.auth
 
 
 
