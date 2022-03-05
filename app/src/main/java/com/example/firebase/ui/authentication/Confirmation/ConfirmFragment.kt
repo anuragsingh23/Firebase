@@ -6,8 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.example.firebase.R
+import com.example.firebase.Utils.Constants
+import com.example.firebase.Utils.Constants.MESSAGE
 import com.example.firebase.databinding.FragmentConfirmationBinding
+
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.*
 import com.google.firebase.auth.ktx.auth
@@ -50,6 +54,7 @@ class ConfirmFragment : Fragment(R.layout.fragment_confirmation){
         val phoneNumber = arguments?.getString("phoneNumber")
         val countryCode = arguments?.getString("countryCode")
 
+
         val number = countryCode + phoneNumber
         mBinding.tvMessage.text = "$phoneNumber"
 
@@ -89,12 +94,8 @@ class ConfirmFragment : Fragment(R.layout.fragment_confirmation){
             }
 
         }
-
-
-
-
-
     }
+
     private fun startPhoneNumberVerification(number : String) {
         val options = PhoneAuthOptions.newBuilder(auth)
             .setPhoneNumber(number)       // Phone number to verify
