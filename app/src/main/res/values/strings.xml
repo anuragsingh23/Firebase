@@ -39,4 +39,5 @@
     <string name="verification_code_subtext">"please enter the verification code sent to "</string>
     <string name="validate">Validate</string>
     <string name="password_no">* * * * * *</string>
+    <string name="inset_otp">write otp</string>
 </resources>

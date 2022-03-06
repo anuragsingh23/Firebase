@@ -28,6 +28,7 @@
         android:text="@string/verification_code_subtext"
         android:textAlignment="center"
         android:textColor="@android:color/white" />
+
     <TextView
         android:id="@+id/tvMessage"
         android:layout_width="wrap_content"
@@ -48,14 +49,14 @@
         android:hint="@string/password_no"
 
         />
-    <Button
-        android:id="@+id/resend"
-        style="?android:attr/borderlessButtonStyle"
+    <TextView
+        android:id="@+id/tvOtp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/resend_otp"
+        android:text=""
+        android:textAlignment="center"
         android:textColor="@android:color/white" />
+
 
     <Button
         android:id="@+id/validate_button"

@@ -31,7 +31,13 @@ class SignInFragment : Fragment(R.layout.fragment_signin) {
 
     private lateinit var   auth : FirebaseAuth
     private var verificationInProgress = false
+    lateinit var verificationId : String
     private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
+
+    lateinit var name : String
+    lateinit var phoneNumber : String
+    lateinit var countryCode : String
+
 
 
 
@@ -46,13 +52,13 @@ class SignInFragment : Fragment(R.layout.fragment_signin) {
 
 
 
+
+
         binding.btnRegister.setOnClickListener {
 
-            val name = binding.etName.text.toString().trim { it <= ' ' }
-            val phoneNumber = binding.etMobile.text.toString().trim { it <= ' ' }
-            val countryCode = binding.etCountryCode.text.toString().trim { it <= ' ' }
-
-
+             name = binding.etName.text.toString().trim { it <= ' ' }
+             phoneNumber = binding.etMobile.text.toString().trim { it <= ' ' }
+             countryCode = binding.etCountryCode.text.toString().trim { it <= ' ' }
 
             val number = countryCode+phoneNumber
             when {
@@ -87,6 +93,7 @@ class SignInFragment : Fragment(R.layout.fragment_signin) {
             }
 
         binding.btnLogin.setOnClickListener { navigateTOLogin() }
+
         callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
 
@@ -103,12 +110,14 @@ class SignInFragment : Fragment(R.layout.fragment_signin) {
             override fun onCodeSent(verifyId: String, token: PhoneAuthProvider.ForceResendingToken) {
                 super.onCodeSent(verifyId, token)
 
+                verificationId = verifyId
+
                 val bundle = bundleOf(
-                    "verifyId" to verifyId ,
+                    "verificationId" to verificationId ,
                     "token" to token ,
-                    "name" to binding.etName.toString().trim(),
-                    "phoneNumber" to binding.etMobile.toString().trim(),
-                    "countryCode" to binding.etCountryCode.toString().trim()
+                    "name" to name,
+                    "phoneNumber" to phoneNumber,
+                    "countryCode" to countryCode
 
                 )
                 findNavController()
