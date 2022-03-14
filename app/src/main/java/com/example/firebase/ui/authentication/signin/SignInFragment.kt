@@ -31,12 +31,13 @@ class SignInFragment : Fragment(R.layout.fragment_signin) {
 
     private lateinit var   auth : FirebaseAuth
     private var verificationInProgress = false
-    lateinit var verificationId : String
+    private var storedVerificationId: String? = ""
+    lateinit var ResendToken : PhoneAuthProvider.ForceResendingToken
     private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
-
     lateinit var name : String
     lateinit var phoneNumber : String
     lateinit var countryCode : String
+
 
 
 
@@ -85,6 +86,8 @@ class SignInFragment : Fragment(R.layout.fragment_signin) {
                 }
                 else -> {
                     sendOtp(number)
+
+
                 }
             }
 
@@ -110,18 +113,15 @@ class SignInFragment : Fragment(R.layout.fragment_signin) {
             override fun onCodeSent(verifyId: String, token: PhoneAuthProvider.ForceResendingToken) {
                 super.onCodeSent(verifyId, token)
 
-                verificationId = verifyId
+                storedVerificationId = verifyId
+                ResendToken = token
 
-                val bundle = bundleOf(
-                    "verificationId" to verificationId ,
-                    "token" to token ,
-                    "name" to name,
-                    "phoneNumber" to phoneNumber,
-                    "countryCode" to countryCode
+               findNavController().navigate(SignInFragmentDirections.actionSignInFragmentToConfirmFragment(
+                    name,
+                    countryCode,
+                    phoneNumber,
+                    storedVerificationId!!))
 
-                )
-                findNavController()
-                    .navigate(R.id.action_signInFragment_to_confirmFragment , bundle)
             }
 
         }

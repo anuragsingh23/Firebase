@@ -23,23 +23,12 @@
         android:label="SignInFragment" >
         <action
             android:id="@+id/action_signInFragment_to_confirmFragment"
-            app:destination="@id/confirmFragment" >
-            <argument
-                android:name="name"
-                app:argType="string"
-                android:defaultValue='""'/>
-            <argument
-                android:name="countyCode"
-                app:argType="string"
-                android:defaultValue="+91"/>
-            <argument
-                android:name="phoneNumber"
-                app:argType="string"
-                android:defaultValue='""'/>
-        </action>
+            app:destination="@id/confirmFragment" />
         <action
             android:id="@+id/action_signInFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+
+
 
 
     </fragment>
@@ -47,9 +36,10 @@
         android:id="@+id/chatFragment2"
         android:name="com.example.firebase.ui.chat.ChatFragment"
         android:label="ChatFragment" />
+
     <fragment
         android:id="@+id/confirmFragment"
-        android:name="com.example.firebase.ui.authentication.login.ConfirmFragment"
+        android:name="com.example.firebase.ui.authentication.confirmation.ConfirmFragment"
         android:label="ConfirmFragment" >
         <action
             android:id="@+id/action_confirmFragment_to_chatFragment2"
@@ -57,6 +47,22 @@
         <action
             android:id="@+id/action_confirmFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue='""'/>
+        <argument
+            android:name="countyCode"
+            app:argType="string"
+            android:defaultValue="+91"/>
+        <argument
+            android:name="phoneNumber"
+            app:argType="string"
+            android:defaultValue='""'/>
+        <argument
+            android:name="storedVerificationId"
+            app:argType="string"
+            android:defaultValue='""'/>
     </fragment>
     <fragment
         android:id="@+id/loginFragment"

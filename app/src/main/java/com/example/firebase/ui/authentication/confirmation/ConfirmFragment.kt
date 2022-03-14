@@ -1,4 +1,4 @@
-package com.example.firebase.ui.authentication.login
+package com.example.firebase.ui.authentication.confirmation
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -9,13 +9,12 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.firebase.R
 import com.example.firebase.databinding.FragmentConfirmationBinding
-import com.google.firebase.FirebaseException
 import com.google.firebase.auth.*
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import java.util.concurrent.TimeUnit
 
 class ConfirmFragment : Fragment(R.layout.fragment_confirmation){
 
@@ -44,23 +43,25 @@ class ConfirmFragment : Fragment(R.layout.fragment_confirmation){
 
         savedInstanceState?.let { onViewStateRestored(it) }
 
-        val name = arguments?.getString("name")
-        val phoneNumber = arguments?.getString("phoneNumber")
-        val countryCode = arguments?.getString("countryCode")
-        val verificationId = arguments?.getString("verificationId")
+
+        val args : ConfirmFragmentArgs by navArgs()
+
+        val name = args.name
+        val phoneNumber = args.phoneNumber
+        val countryCode = args.countyCode
+        val verificationId = args.storedVerificationId
 
 
         auth = Firebase.auth
 
-        val number = countryCode + phoneNumber
-        mBinding.tvMessage.text = number
-        mBinding.tvOtp.text = verificationId
+
+        mBinding.tvMessage.text = countryCode + phoneNumber
+
 
         mBinding.validateButton.setOnClickListener {
 
-            val action = R.id.action_confirmFragment_to_chatFragment2
-            findNavController().navigate(action )
-          /*  val otp = mBinding.otpView.toString().trim()
+
+            val otp = mBinding.otpView.toString().trim()
 
             if (TextUtils.isEmpty(otp))
             {
@@ -73,15 +74,8 @@ class ConfirmFragment : Fragment(R.layout.fragment_confirmation){
             }
 
             else {
-                if (verificationId != null){
-                    val credential = PhoneAuthProvider.getCredential(verificationId, otp)
-                    signInWithPhoneAuthCredential(credential)
-                }
-
-            }
-      */
-
-
+                val credential = PhoneAuthProvider.getCredential(verificationId , otp)
+                    signInWithPhoneAuthCredential(credential) }
         }
 
     }
@@ -91,15 +85,10 @@ class ConfirmFragment : Fragment(R.layout.fragment_confirmation){
 
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
-
-                    val user = task.result?.user
-                    val bundle=bundleOf(
-                        "user" to user
-                    )
                     val action = R.id.action_confirmFragment_to_chatFragment2
-                    findNavController().navigate(action , bundle)
-                        onDestroy()
-                } else {
+                    findNavController().navigate(action )
+                }
+                else {
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
                         // The verification code entered was invalid
                         mBinding.otpView.error = "Invalid code."

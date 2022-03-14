@@ -40,4 +40,6 @@
     <string name="validate">Validate</string>
     <string name="password_no">* * * * * *</string>
     <string name="inset_otp">write otp</string>
+    <string name="phone">Phone Number</string>
+    <string name="lastMessage">message</string>
 </resources>
