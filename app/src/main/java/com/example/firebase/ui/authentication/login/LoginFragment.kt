@@ -21,7 +21,7 @@ class LoginFragment : Fragment(R.layout.fragment_login){
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding= FragmentLoginBinding.inflate(inflater,container,false)
         binding?.btnLogin?.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToConfirmFragment())

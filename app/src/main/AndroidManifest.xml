@@ -17,6 +17,7 @@
         android:theme="@style/Theme.CustomSplashScreenTheme"
         tools:targetApi="m">
         <activity
+            android:launchMode="singleTask"
             android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>

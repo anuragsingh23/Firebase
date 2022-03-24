@@ -40,6 +40,9 @@ ext {
             classpath "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion"
         }
     }
+    dependencies {
+        classpath 'com.google.gms:google-services:4.3.10'
+    }
 }
 
 

@@ -12,8 +12,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.firebase.R
 import com.example.firebase.databinding.FragmentConfirmationBinding
+import com.example.firebase.model.User
 import com.google.firebase.auth.*
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 
 class ConfirmFragment : Fragment(R.layout.fragment_confirmation){
@@ -26,8 +29,10 @@ class ConfirmFragment : Fragment(R.layout.fragment_confirmation){
                         get() = _mBinding!!
 
     private lateinit var   auth : FirebaseAuth
+    private lateinit  var mDbRef : DatabaseReference
+    private lateinit var name : String
+    private lateinit var number : String
 
-   // private lateinit var verificationId: String
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,12 +51,13 @@ class ConfirmFragment : Fragment(R.layout.fragment_confirmation){
 
         val args : ConfirmFragmentArgs by navArgs()
 
-        val name = args.name
+            name = args.name
         val phoneNumber = args.phoneNumber
         val countryCode = args.countyCode
         val verificationId = args.storedVerificationId
 
 
+        number  = countryCode + phoneNumber
         auth = Firebase.auth
 
 
@@ -61,7 +67,7 @@ class ConfirmFragment : Fragment(R.layout.fragment_confirmation){
         mBinding.validateButton.setOnClickListener {
 
 
-            val otp = mBinding.otpView.toString().trim()
+            val otp = mBinding.otpView.text.toString().trim()
 
             if (TextUtils.isEmpty(otp))
             {
@@ -85,6 +91,8 @@ class ConfirmFragment : Fragment(R.layout.fragment_confirmation){
 
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
+
+                     addUserToDatabase(name,number,auth.currentUser?.uid!!)
                     val action = R.id.action_confirmFragment_to_chatFragment2
                     findNavController().navigate(action )
                 }
@@ -97,6 +105,16 @@ class ConfirmFragment : Fragment(R.layout.fragment_confirmation){
                 }
             }
     }
+
+    private fun addUserToDatabase(name: String, number: String, uid: String) {
+
+        mDbRef = FirebaseDatabase.getInstance().getReference("Users")
+
+        mDbRef.child(uid).setValue(User(name,number,uid))
+
+
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         _mBinding = null
