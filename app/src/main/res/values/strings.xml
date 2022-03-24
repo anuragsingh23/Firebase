@@ -43,4 +43,7 @@
     <string name="phone">Phone Number</string>
     <string name="lastMessage">message</string>
     <string name="logout">Logout</string>
+    <string name="type_message">Type a message</string>
+    <string name="this_is_sent_message">this is sent message</string>
+    <string name="this_is_receive_message">this is receive message</string>
 </resources>
