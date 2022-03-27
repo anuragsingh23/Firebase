@@ -12,12 +12,14 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.firebase.R
 import com.example.firebase.databinding.FragmentSigninBinding
+import com.example.firebase.model.User
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
 import java.util.concurrent.TimeUnit
 
@@ -30,12 +32,14 @@ class SignInFragment : Fragment(R.layout.fragment_signin) {
                       get() = _binding!!
 
     private lateinit var   auth : FirebaseAuth
+    private lateinit var mDbref : DatabaseReference
     private var verificationInProgress = false
     private var storedVerificationId: String? = ""
     lateinit var ResendToken : PhoneAuthProvider.ForceResendingToken
     private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
     lateinit var name : String
     lateinit var phoneNumber : String
+    lateinit var number : String
     lateinit var countryCode : String
 
 
@@ -57,11 +61,22 @@ class SignInFragment : Fragment(R.layout.fragment_signin) {
 
         binding.btnRegister.setOnClickListener {
 
+
              name = binding.etName.text.toString().trim { it <= ' ' }
              phoneNumber = binding.etMobile.text.toString().trim { it <= ' ' }
              countryCode = binding.etCountryCode.text.toString().trim { it <= ' ' }
 
-            val number = countryCode+phoneNumber
+             number = countryCode+phoneNumber
+          /*  if (!checkExistingUser(number) ){
+
+                Toast.makeText(
+                    this.activity,
+                    "number already registered",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            } */
+
             when {
                 TextUtils.isEmpty(name) -> {
                     Toast.makeText(
@@ -83,19 +98,21 @@ class SignInFragment : Fragment(R.layout.fragment_signin) {
                         resources.getString(R.string.err_msg_select_country_code),
                         Toast.LENGTH_SHORT
                     ).show()
+
                 }
+
                 else -> {
+
                     sendOtp(number)
-
-
                 }
-            }
-
-
 
             }
 
-        binding.btnLogin.setOnClickListener { navigateTOLogin() }
+
+
+            }
+
+       // binding.btnLogin.setOnClickListener { navigateTOLogin() }
 
         callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
@@ -127,6 +144,30 @@ class SignInFragment : Fragment(R.layout.fragment_signin) {
         }
 
         return binding.root
+    }
+
+    private fun checkExistingUser(phone : String){
+        mDbref = FirebaseDatabase.getInstance().getReference("users")
+        mDbref.orderByChild("phoneNumber").equalTo(phone).addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.getValue() != null){
+                    Toast.makeText(
+                        activity,
+                        "user already register",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                }
+                else{
+
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
     }
 
     private fun sendOtp(number : String) {

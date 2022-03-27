@@ -24,7 +24,6 @@ class ConfirmFragment : Fragment(R.layout.fragment_confirmation){
 
     private var  _mBinding : FragmentConfirmationBinding? = null
 
-    private val TAG = ""
     private val mBinding : FragmentConfirmationBinding
                         get() = _mBinding!!
 
@@ -61,7 +60,7 @@ class ConfirmFragment : Fragment(R.layout.fragment_confirmation){
         auth = Firebase.auth
 
 
-        mBinding.tvMessage.text = countryCode + phoneNumber
+        mBinding.tvMessage.text = phoneNumber
 
 
         mBinding.validateButton.setOnClickListener {

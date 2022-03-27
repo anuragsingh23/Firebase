@@ -1,14 +1,11 @@
-package com.example.firebase.ui.chat
+package com.example.firebase.ui.message
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.view.menu.MenuView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.firebase.databinding.ItemFriendsBinding
 import com.example.firebase.databinding.ReceiveBinding
 import com.example.firebase.databinding.SentBinding
-import com.example.firebase.model.data.Message
+import com.example.firebase.model.Message
 import com.google.firebase.auth.FirebaseAuth
 
 class MessageAdapter (val messageList : ArrayList<Message>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -53,7 +50,8 @@ class MessageAdapter (val messageList : ArrayList<Message>) : RecyclerView.Adapt
     }
 
     override fun getItemCount(): Int {
-        messageList.size
+      return  messageList.size
+
     }
 
 
@@ -64,3 +62,6 @@ class MessageAdapter (val messageList : ArrayList<Message>) : RecyclerView.Adapt
             val receiveMessage = rBinding.tvReceiveMessage
     }
 }
+
+
+

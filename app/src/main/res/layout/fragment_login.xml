@@ -20,23 +20,52 @@
         android:textSize="30sp"
         android:textStyle="bold" />
 
-
-    <EditText
-        android:id="@+id/et_mobile"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/round_edit_text"
-        android:hint="@string/mobile_number"
-        android:importantForAutofill="no"
-        android:inputType="number"
-        android:maxLines="1"
-        android:paddingStart="20dp"
-        android:paddingEnd="0dp"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+
+
+        <EditText
+            android:id="@+id/etCountryCode"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_edit_text"
+            android:hint="@string/countrycode"
+            android:importantForAutofill="no"
+            android:maxLength="6"
+            android:maxLines="1"
+            android:paddingStart="20dp"
+            android:paddingEnd="0dp"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/etMobile"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="3"
+            android:background="@drawable/round_edit_text"
+            android:hint="@string/mobile_number"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="13"
+            android:maxLines="1"
+            android:paddingStart="20dp"
+            android:paddingEnd="0dp"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </LinearLayout>
 
 
     <androidx.appcompat.widget.AppCompatButton

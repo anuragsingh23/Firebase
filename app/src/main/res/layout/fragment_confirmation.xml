@@ -20,7 +20,7 @@
         android:padding="16dp"
         android:text="@string/verification_code"
         android:textColor="@android:color/white"
-        android:textSize="16sp"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
     <TextView
@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:text="@string/verification_code_subtext"
         android:textAlignment="center"
+        android:textSize="20sp"
         android:textColor="@android:color/white" />
 
     <TextView
@@ -35,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
+        android:textSize="20sp"
         android:textAlignment="center"
         android:textColor="@android:color/white" />
 

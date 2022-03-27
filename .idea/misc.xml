@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/anura/AndroidStudioProjects/Firebase/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22314814814814815" />
+        <entry key="..\:/Users/anura/AndroidStudioProjects/Firebase/app/src/main/res/drawable/ic_friends.xml" value="0.18888888888888888" />
         <entry key="..\:/Users/anura/AndroidStudioProjects/Firebase/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22314814814814815" />
         <entry key="..\:/Users/anura/AndroidStudioProjects/Firebase/app/src/main/res/drawable/round_button.xml" value="0.19074074074074074" />
         <entry key="..\:/Users/anura/AndroidStudioProjects/Firebase/app/src/main/res/drawable/round_button_black.xml" value="0.19074074074074074" />
@@ -14,10 +15,11 @@
         <entry key="..\:/Users/anura/AndroidStudioProjects/Firebase/app/src/main/res/layout/fragment_base.xml" value="0.14583333333333334" />
         <entry key="..\:/Users/anura/AndroidStudioProjects/Firebase/app/src/main/res/layout/fragment_base2.xml" value="0.14583333333333334" />
         <entry key="..\:/Users/anura/AndroidStudioProjects/Firebase/app/src/main/res/layout/fragment_chat.xml" value="0.1793478260869565" />
-        <entry key="..\:/Users/anura/AndroidStudioProjects/Firebase/app/src/main/res/layout/fragment_confirmation.xml" value="0.4" />
+        <entry key="..\:/Users/anura/AndroidStudioProjects/Firebase/app/src/main/res/layout/fragment_confirmation.xml" value="0.3948051948051948" />
         <entry key="..\:/Users/anura/AndroidStudioProjects/Firebase/app/src/main/res/layout/fragment_friends.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/anura/AndroidStudioProjects/Firebase/app/src/main/res/layout/fragment_landinf.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/anura/AndroidStudioProjects/Firebase/app/src/main/res/layout/fragment_login.xml" value="0.2" />
+        <entry key="..\:/Users/anura/AndroidStudioProjects/Firebase/app/src/main/res/layout/fragment_message_fragmnt.xml" value="0.12158054711246201" />
         <entry key="..\:/Users/anura/AndroidStudioProjects/Firebase/app/src/main/res/layout/fragment_signin.xml" value="0.10400000000000001" />
         <entry key="..\:/Users/anura/AndroidStudioProjects/Firebase/app/src/main/res/layout/fragment_signinin.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/anura/AndroidStudioProjects/Firebase/app/src/main/res/layout/fragment_users.xml" value="0.1793478260869565" />

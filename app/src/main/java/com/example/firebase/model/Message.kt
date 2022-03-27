@@ -1,4 +1,4 @@
-package com.example.firebase.model.data
+package com.example.firebase.model
 
 class Message(
     var message : String?= null ,

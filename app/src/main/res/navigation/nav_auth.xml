@@ -37,11 +37,11 @@
         android:name="com.example.firebase.ui.chat.ChatFragment"
         android:label="ChatFragment" >
         <action
-            android:id="@+id/action_chatFragment2_to_friendsFragment"
-            app:destination="@id/friendsFragment" />
-        <action
             android:id="@+id/action_chatFragment2_to_signInFragment"
             app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_chatFragment2_to_messageFragment"
+            app:destination="@id/messageFragment" />
     </fragment>
 
     <fragment
@@ -86,11 +86,12 @@
             app:destination="@id/signInFragment" />
     </fragment>
     <fragment
-        android:id="@+id/friendsFragment"
-        android:name="com.example.firebase.ui.friends.FriendsFragment"
-        android:label="FriendsFragment" >
+        android:id="@+id/messageFragment"
+        android:name="com.example.firebase.ui.message.MessageFragment"
+        android:label="fragment_message_fragmnt"
+        tools:layout="@layout/fragment_message_fragmnt" >
         <action
-            android:id="@+id/action_friendsFragment_to_chatFragment2"
+            android:id="@+id/action_messageFragment_to_chatFragment2"
             app:destination="@id/chatFragment2" />
     </fragment>
 </navigation>
